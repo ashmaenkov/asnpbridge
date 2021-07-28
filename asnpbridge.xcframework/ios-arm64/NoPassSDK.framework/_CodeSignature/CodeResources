@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/NoPassSDK-Swift.h</key>
 		<data>
-		xt4OBHdkTUiIMpqtB7uIvMxtb6w=
+		CuHvarkixVzK6mCrnSe1XdFHZXU=
 		</data>
 		<key>Headers/NoPassSDK.h</key>
 		<data>
@@ -34,27 +34,27 @@
 		</data>
 		<key>Modules/NoPassSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		758/8TCsPv0jjEespPDPyGh0llc=
+		HVYy4ig+IF67vMtPRxZ43OJ+Uzc=
 		</data>
 		<key>Modules/NoPassSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		2c4W6PN3NgoUVltF8AOYh9dGoD8=
+		+rsWE+wZ4KPDadLYz9ZxdpQsKqE=
 		</data>
 		<key>Modules/NoPassSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		UfTL88hEjA42PwH6upFI3vYF1O0=
+		XE3/s++F1xTOXkOHoSFlDWBS0/Y=
 		</data>
 		<key>Modules/NoPassSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		758/8TCsPv0jjEespPDPyGh0llc=
+		HVYy4ig+IF67vMtPRxZ43OJ+Uzc=
 		</data>
 		<key>Modules/NoPassSDK.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		2c4W6PN3NgoUVltF8AOYh9dGoD8=
+		+rsWE+wZ4KPDadLYz9ZxdpQsKqE=
 		</data>
 		<key>Modules/NoPassSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		UfTL88hEjA42PwH6upFI3vYF1O0=
+		XE3/s++F1xTOXkOHoSFlDWBS0/Y=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -89,7 +89,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C1J73vQ3xaZU6WesEa60nMO/gRYei4MXkv6e9Z0kVtQ=
+			WKYxDr1TSf8vHsBkspzCCV4ITMyJ1vqoWf+Q5pPNzVw=
 			</data>
 		</dict>
 		<key>Headers/NoPassSDK.h</key>
@@ -117,42 +117,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5DwY/GBJCzS4kfvZoIQbCagNd5mHX8J2dTdQQuAOL1c=
+			miC3lIaT7DafusYoxgxmWa8kQUagl1Yej0KKZMTO5oc=
 			</data>
 		</dict>
 		<key>Modules/NoPassSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jwd176c6o9SWAU+KJBgMUuhAfiTPUtyvP4qHxB6qfe8=
+			tOOKU+2Xn6VAeXDM8WVbOm0gUf5kmzzMs+ZHCw6feOQ=
 			</data>
 		</dict>
 		<key>Modules/NoPassSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AJwl/B98GTBWCGZH5SfxEuU69YIEbo2istxXjI/3ZH0=
+			DKFdV5c0cKTSYe//big6vpZw45I8ZsAAyqKSOGtAi+w=
 			</data>
 		</dict>
 		<key>Modules/NoPassSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5DwY/GBJCzS4kfvZoIQbCagNd5mHX8J2dTdQQuAOL1c=
+			miC3lIaT7DafusYoxgxmWa8kQUagl1Yej0KKZMTO5oc=
 			</data>
 		</dict>
 		<key>Modules/NoPassSDK.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jwd176c6o9SWAU+KJBgMUuhAfiTPUtyvP4qHxB6qfe8=
+			tOOKU+2Xn6VAeXDM8WVbOm0gUf5kmzzMs+ZHCw6feOQ=
 			</data>
 		</dict>
 		<key>Modules/NoPassSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AJwl/B98GTBWCGZH5SfxEuU69YIEbo2istxXjI/3ZH0=
+			DKFdV5c0cKTSYe//big6vpZw45I8ZsAAyqKSOGtAi+w=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

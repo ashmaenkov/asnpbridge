@@ -288,32 +288,6 @@ SWIFT_CLASS("_TtC9NoPassSDK15SessionDelegate")
 @end
 
 @class NSURLSession;
-@class NSURLAuthenticationChallenge;
-@class NSURLCredential;
-
-@interface SessionDelegate (SWIFT_EXTENSION(NoPassSDK)) <NSURLSessionDelegate>
-/// Tells the delegate that the session has been invalidated.
-/// \param session The session object that was invalidated.
-///
-/// \param error The error that caused invalidation, or nil if the invalidation was explicit.
-///
-- (void)URLSession:(NSURLSession * _Nonnull)session didBecomeInvalidWithError:(NSError * _Nullable)error;
-/// Requests credentials from the delegate in response to a session-level authentication request from the
-/// remote server.
-/// \param session The session containing the task that requested authentication.
-///
-/// \param challenge An object that contains the request for authentication.
-///
-/// \param completionHandler A handler that your delegate method must call providing the disposition
-/// and credential.
-///
-- (void)URLSession:(NSURLSession * _Nonnull)session didReceiveChallenge:(NSURLAuthenticationChallenge * _Nonnull)challenge completionHandler:(void (^ _Nonnull)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler;
-/// Tells the delegate that all messages enqueued for a session have been delivered.
-/// \param session The session that no longer has any outstanding requests.
-///
-- (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession * _Nonnull)session;
-@end
-
 @class NSURLSessionDownloadTask;
 
 @interface SessionDelegate (SWIFT_EXTENSION(NoPassSDK)) <NSURLSessionDownloadDelegate>
@@ -442,6 +416,32 @@ SWIFT_AVAILABILITY(tvos,introduced=9.0) SWIFT_AVAILABILITY(macos,introduced=10.1
 /// \param outputStream The new output stream.
 ///
 - (void)URLSession:(NSURLSession * _Nonnull)session streamTask:(NSURLSessionStreamTask * _Nonnull)streamTask didBecomeInputStream:(NSInputStream * _Nonnull)inputStream outputStream:(NSOutputStream * _Nonnull)outputStream;
+@end
+
+@class NSURLAuthenticationChallenge;
+@class NSURLCredential;
+
+@interface SessionDelegate (SWIFT_EXTENSION(NoPassSDK)) <NSURLSessionDelegate>
+/// Tells the delegate that the session has been invalidated.
+/// \param session The session object that was invalidated.
+///
+/// \param error The error that caused invalidation, or nil if the invalidation was explicit.
+///
+- (void)URLSession:(NSURLSession * _Nonnull)session didBecomeInvalidWithError:(NSError * _Nullable)error;
+/// Requests credentials from the delegate in response to a session-level authentication request from the
+/// remote server.
+/// \param session The session containing the task that requested authentication.
+///
+/// \param challenge An object that contains the request for authentication.
+///
+/// \param completionHandler A handler that your delegate method must call providing the disposition
+/// and credential.
+///
+- (void)URLSession:(NSURLSession * _Nonnull)session didReceiveChallenge:(NSURLAuthenticationChallenge * _Nonnull)challenge completionHandler:(void (^ _Nonnull)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler;
+/// Tells the delegate that all messages enqueued for a session have been delivered.
+/// \param session The session that no longer has any outstanding requests.
+///
+- (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession * _Nonnull)session;
 @end
 
 @class NSURLSessionTask;
