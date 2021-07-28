@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "asnpbridge"
-    s.version      = "1.0.17"
+    s.version      = "1.0.18"
     s.license      = { type: 'Custom license', file: 'LICENSE' }
     s.summary      = "Bridge test"
     s.description  = "Bridge test"
@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
     # s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
     # s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
     # s.pod_target_xcconfig = { 'ONLY_ACTIVE_ARCH' => 'YES' }
+    # s.user_target_xcconfig = { 'ONLY_ACTIVE_ARCH' => 'YES' }
 end
