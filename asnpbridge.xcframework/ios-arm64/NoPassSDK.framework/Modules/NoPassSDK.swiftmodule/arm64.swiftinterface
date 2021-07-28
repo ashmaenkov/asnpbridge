@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
-// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name NoPassSDK
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name NoPassSDK
 import CommonCrypto
 import CoreData
 import Dispatch
@@ -45,8 +45,8 @@ import UIKit
     get
   }
   open var previousFlags: SystemConfiguration.SCNetworkReachabilityFlags
-  convenience public init?(host: Swift.String)
-  convenience public init?()
+  public convenience init?(host: Swift.String)
+  public convenience init?()
   @objc deinit
   @discardableResult
   open func startListening() -> Swift.Bool
@@ -151,7 +151,7 @@ public protocol RestoreFlowDelegate : AnyObject {
 @_hasMissingDesignatedInitializers open class MultipartFormData {
   open var contentType: Swift.String {
     get
-    set
+    set(value)
   }
   @objc deinit
 }
@@ -174,7 +174,9 @@ public enum HTTPMethod : Swift.String {
 public typealias Parameters = [Swift.String : Any]
 public struct URLEncoding {
   public enum Destination {
-    case methodDependent, queryString, httpBody
+    case methodDependent
+    case queryString
+    case httpBody
     public static func == (a: NoPassSDK.URLEncoding.Destination, b: NoPassSDK.URLEncoding.Destination) -> Swift.Bool
     public var hashValue: Swift.Int {
       get
@@ -182,7 +184,8 @@ public struct URLEncoding {
     public func hash(into hasher: inout Swift.Hasher)
   }
   public enum ArrayEncoding {
-    case brackets, noBrackets
+    case brackets
+    case noBrackets
     public static func == (a: NoPassSDK.URLEncoding.ArrayEncoding, b: NoPassSDK.URLEncoding.ArrayEncoding) -> Swift.Bool
     public var hashValue: Swift.Int {
       get
@@ -190,7 +193,8 @@ public struct URLEncoding {
     public func hash(into hasher: inout Swift.Hasher)
   }
   public enum BoolEncoding {
-    case numeric, literal
+    case numeric
+    case literal
     public static func == (a: NoPassSDK.URLEncoding.BoolEncoding, b: NoPassSDK.URLEncoding.BoolEncoding) -> Swift.Bool
     public var hashValue: Swift.Int {
       get
@@ -223,7 +227,7 @@ public protocol NoPassSynchronisationServiceDelegate : AnyObject {
   func synchronisationDidFail(error: NoPassSDK.NopassError)
 }
 @_hasMissingDesignatedInitializers public class NoPassSynchronisationService {
-  public static let shared: NoPassSDK.NoPassSynchronisationService
+  public static var shared: NoPassSDK.NoPassSynchronisationService
   weak public var delegate: NoPassSDK.NoPassSynchronisationServiceDelegate?
   public func startSyncAccount(result: Swift.String, enabled2FaMethod: NoPassSDK.BiometricType, isScreenLock: Swift.Bool)
   public func finishAccountSynchronisation(confirmId: Swift.String, enabled2FaMethod: NoPassSDK.BiometricType, isScreenLock: Swift.Bool)
@@ -239,7 +243,7 @@ public struct NoPassAuthModel {
   public func toDictionaryForRN() -> Swift.Dictionary<Swift.String, Swift.String>
 }
 @_hasMissingDesignatedInitializers public class NoPassAccountService {
-  public static let shared: NoPassSDK.NoPassAccountService
+  public static var shared: NoPassSDK.NoPassAccountService
   public var onAccountsChange: (() -> ())?
   public func fetchAccounts() -> [NoPassSDK.NoPassAccount]
   public func fetchAccount(userCode: Swift.String) -> NoPassSDK.NoPassAccount?
@@ -290,16 +294,16 @@ extension Date {
 }
 extension NSNotification.Name {
   public struct Task {
-    public static let DidResume: Foundation.Notification.Name
-    public static let DidSuspend: Foundation.Notification.Name
-    public static let DidCancel: Foundation.Notification.Name
-    public static let DidComplete: Foundation.Notification.Name
+    public static var DidResume: Foundation.Notification.Name
+    public static var DidSuspend: Foundation.Notification.Name
+    public static var DidCancel: Foundation.Notification.Name
+    public static var DidComplete: Foundation.Notification.Name
   }
 }
 extension Notification {
   public struct Key {
-    public static let Task: Swift.String
-    public static let ResponseData: Swift.String
+    public static var Task: Swift.String
+    public static var ResponseData: Swift.String
   }
 }
 public enum NoPassPushNotificationWorkflow : Swift.Int {
@@ -320,7 +324,7 @@ public enum NoPassPushNotificationWorkflow : Swift.Int {
   }
 }
 @_hasMissingDesignatedInitializers public class NoPassNotificationService {
-  public static let shared: NoPassSDK.NoPassNotificationService
+  public static var shared: NoPassSDK.NoPassNotificationService
   public func getNotificationType(data: [Swift.AnyHashable : Any]) -> NoPassSDK.NoPassPushNotificationWorkflow
   public func setRegistrationToken(token: Swift.String)
   public func getRegistrationToken() -> Swift.String?
@@ -352,26 +356,26 @@ public enum NoPassPushNotificationWorkflow : Swift.Int {
   @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
   open var streamTaskReadClosed: ((Foundation.URLSession, Foundation.URLSessionStreamTask) -> Swift.Void)? {
     get
-    set
+    set(newValue)
   }
   @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
   open var streamTaskWriteClosed: ((Foundation.URLSession, Foundation.URLSessionStreamTask) -> Swift.Void)? {
     get
-    set
+    set(newValue)
   }
   @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
   open var streamTaskBetterRouteDiscovered: ((Foundation.URLSession, Foundation.URLSessionStreamTask) -> Swift.Void)? {
     get
-    set
+    set(newValue)
   }
   @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
   open var streamTaskDidBecomeInputAndOutputStreams: ((Foundation.URLSession, Foundation.URLSessionStreamTask, Foundation.InputStream, Foundation.OutputStream) -> Swift.Void)? {
     get
-    set
+    set(newValue)
   }
   open subscript(task: Foundation.URLSessionTask) -> NoPassSDK.Request? {
     get
-    set
+    set(newValue)
   }
   @objc override dynamic open func responds(to selector: ObjectiveC.Selector) -> Swift.Bool
   @objc deinit
@@ -420,8 +424,8 @@ public enum AuthStatus {
   public func hash(into hasher: inout Swift.Hasher)
 }
 @objc @_inheritsConvenienceInitializers open class NetworkManager : ObjectiveC.NSObject {
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 public struct NoPassAuthComparisonContent {
   public let digits: Swift.String
@@ -435,7 +439,7 @@ public protocol NoPassAuthServiceDelegate : AnyObject {
   func onAuthFinish(error: NoPassSDK.NopassError?, authStatus: NoPassSDK.AuthStatus)
 }
 @_hasMissingDesignatedInitializers public class NoPassAuthService {
-  public static let shared: NoPassSDK.NoPassAuthService
+  public static var shared: NoPassSDK.NoPassAuthService
   weak public var delegate: NoPassSDK.NoPassAuthServiceDelegate?
   public func isHaveAuthSessionNow() -> Swift.Bool
   public func getAuthComparisonContent(data: [Swift.String : Any], userSeed: Swift.String) -> NoPassSDK.NoPassAuthComparisonContent?
@@ -449,15 +453,15 @@ public protocol NoPassRegistrationServiceDelegate : AnyObject {
   func registrationCode(code: Swift.String, isNeedConfirmationCode: Swift.Bool)
 }
 @_hasMissingDesignatedInitializers public class NoPassRegistrationService {
-  public static let shared: NoPassSDK.NoPassRegistrationService
+  public static var shared: NoPassSDK.NoPassRegistrationService
   weak public var delegate: NoPassSDK.NoPassRegistrationServiceDelegate?
   public func startRegistration(result: Swift.String, enabled2FaMethod: NoPassSDK.BiometricType, isScreenLock: Swift.Bool)
   @objc deinit
 }
 extension NSNotification.Name {
-  public static let didReceiveAssigeDeviceData: Foundation.Notification.Name
-  public static let applicationWillEnterForeground: Foundation.Notification.Name
-  public static let didReceiveRegistationData: Foundation.Notification.Name
+  public static var didReceiveAssigeDeviceData: Foundation.Notification.Name
+  public static var applicationWillEnterForeground: Foundation.Notification.Name
+  public static var didReceiveRegistationData: Foundation.Notification.Name
 }
 public enum NopassError : Swift.Error {
   case custom(description: Swift.String)
@@ -502,8 +506,8 @@ extension NopassError {
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers open class TaskDelegate : ObjectiveC.NSObject {
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 @_hasMissingDesignatedInitializers public class ImageProvider {
   public static func image(named: Swift.String) -> UIKit.UIImage?
@@ -550,47 +554,47 @@ extension Account {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<NoPassSDK.Account>
   @objc @NSManaged dynamic public var alias: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var createdDate: Foundation.Date? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var hex: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var isAccountBackup: Swift.Bool {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var portalId: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var portalName: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var portalUrl: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var serverUrl: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var userCode: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var userName: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var userseed: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
 }
 @_inheritsConvenienceInitializers @objc(AuthHistory) public class AuthHistory : CoreData.NSManagedObject {
@@ -601,48 +605,26 @@ extension AuthHistory {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<NoPassSDK.AuthHistory>
   @objc @NSManaged dynamic public var authDate: Foundation.Date? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var hex: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var isSuccesAuth: Swift.Bool {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var portalUrl: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var userCode: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
   @objc @NSManaged dynamic public var userName: Swift.String? {
     @objc get
-    @objc set
+    @objc set(value)
   }
 }
-extension NoPassSDK.NetworkReachabilityManager.ConnectionType : Swift.Equatable {}
-extension NoPassSDK.NetworkReachabilityManager.ConnectionType : Swift.Hashable {}
-extension NoPassSDK.HTTPMethod : Swift.Equatable {}
-extension NoPassSDK.HTTPMethod : Swift.Hashable {}
-extension NoPassSDK.HTTPMethod : Swift.RawRepresentable {}
-extension NoPassSDK.URLEncoding.Destination : Swift.Equatable {}
-extension NoPassSDK.URLEncoding.Destination : Swift.Hashable {}
-extension NoPassSDK.URLEncoding.ArrayEncoding : Swift.Equatable {}
-extension NoPassSDK.URLEncoding.ArrayEncoding : Swift.Hashable {}
-extension NoPassSDK.URLEncoding.BoolEncoding : Swift.Equatable {}
-extension NoPassSDK.URLEncoding.BoolEncoding : Swift.Hashable {}
-extension NoPassSDK.DeclineType : Swift.Equatable {}
-extension NoPassSDK.DeclineType : Swift.Hashable {}
-extension NoPassSDK.DeclineType : Swift.RawRepresentable {}
-extension NoPassSDK.NoPassPushNotificationWorkflow : Swift.Equatable {}
-extension NoPassSDK.NoPassPushNotificationWorkflow : Swift.Hashable {}
-extension NoPassSDK.NoPassPushNotificationWorkflow : Swift.RawRepresentable {}
-extension NoPassSDK.AuthStatus : Swift.Equatable {}
-extension NoPassSDK.AuthStatus : Swift.Hashable {}
-extension NoPassSDK.BiometricType : Swift.Equatable {}
-extension NoPassSDK.BiometricType : Swift.Hashable {}
-extension NoPassSDK.BiometricType : Swift.RawRepresentable {}
