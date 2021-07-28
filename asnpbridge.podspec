@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "asnpbridge"
-    s.version      = "1.0.11"
+    s.version      = "1.0.12"
     s.license      = { type: 'Custom license', file: 'LICENSE' }
     s.summary      = "Bridge test"
     s.description  = "Bridge test"
