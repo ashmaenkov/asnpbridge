@@ -18,8 +18,8 @@ Pod::Spec.new do |s|
     # s.xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
     # s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
-    s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-    s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+    # s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+    # s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
     # s.pod_target_xcconfig = { 'ONLY_ACTIVE_ARCH' => 'YES' }
     # s.user_target_xcconfig = { 'ONLY_ACTIVE_ARCH' => 'YES' }
     #
@@ -32,4 +32,8 @@ Pod::Spec.new do |s|
 # s.pod_target_xcconfig = { 'VALID_ARCHS' => '$(ARCHS_STANDARD)', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 # s.user_target_xcconfig = { 'VALID_ARCHS' => '$(ARCHS_STANDARD)', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
+# [CP] Unable to find matching .xcframework slice in 'asnpbridge/asnpbridge.xcframework asnpbridge framework ios-arm64 ios-x86_64-simulator' for the current build architectures (arm64 x86_64).
+
+# pod repo push asnpbridge asnpbridge.podspec --verbose --allow-warnings --skip-import-validation
+ # https://cocoapods.org/pods/asnpbridge
 end
