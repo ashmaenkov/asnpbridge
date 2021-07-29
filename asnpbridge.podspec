@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
     s.name         = "asnpbridge"
-    s.version      = "1.0.26"
+    s.version      = "1.0.28"
     s.license      = { type: 'Custom license', file: 'LICENSE' }
     s.summary      = "Bridge test"
-    s.description  = "Bridge test"
+    s.description  = "Bridge test description"
     s.homepage     = "https://github.com/ashmaenkov/asnpbridge.git"
 
     s.author = { "ashmaenkov" => "artsiom.shmaenkov@gmail.com" }
@@ -36,4 +36,6 @@ Pod::Spec.new do |s|
 
 # pod repo push asnpbridge asnpbridge.podspec --verbose --allow-warnings --skip-import-validation
  # https://cocoapods.org/pods/asnpbridge
+
+ # pod trunk push asnpbridge.podspec
 end
