@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		nqL8k5Lg5DlO5r9+cgJJdF0r1gQ=
+		g49TjeBcHylx1CnBRmLP1KMui+s=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		4u3GBkThdaZB7vyMGh3BsdtWfGY=
+		SqH7K9Hq9XRPRfmYFtRQQ5aahl8=
 		</data>
 		<key>Resources/LICENSE</key>
 		<data>
@@ -80,7 +80,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			o0MTWwoYJPA3mgpSPcH4TNjXOGCsGCXbJJ+la9u9mtM=
+			FdDFOT09nmOHkUQP8GvX/xg1f7gSkLJafx4i+vlYQbE=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/arm64.swiftdoc</key>
@@ -101,7 +101,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			o0MTWwoYJPA3mgpSPcH4TNjXOGCsGCXbJJ+la9u9mtM=
+			FdDFOT09nmOHkUQP8GvX/xg1f7gSkLJafx4i+vlYQbE=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
@@ -122,7 +122,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LyhxC7DgRwp1dfzNIlqb58egjkkHiSuK1StGfKVQ+bU=
+			kgInsmaXLnUApzF3wy6MaNBYwEjdt1DG0UK4mmEyp5Y=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64.swiftdoc</key>
@@ -143,7 +143,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LyhxC7DgRwp1dfzNIlqb58egjkkHiSuK1StGfKVQ+bU=
+			kgInsmaXLnUApzF3wy6MaNBYwEjdt1DG0UK4mmEyp5Y=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -157,14 +157,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			s70/BSUvptzAGUQschnEeEOAsheABxnIhMjqkybLisg=
+			jzGSu6DRC8rWMxu7cQmjJUAnIvDqyGnpSnoIGGQ3pWY=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wuCASlN34oHIGUnVb7NjDn2qGYBtg+rJGUDKGIEhyqo=
+			idnptWwwrWQpp4Z6aASGh2K58UFl4UQTFKv0uoTJRrk=
 			</data>
 		</dict>
 		<key>Resources/LICENSE</key>
