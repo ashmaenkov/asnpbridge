@@ -12,10 +12,6 @@
 		<data>
 		TpRGYZRYD8DKm05u/deQ0nuE67I=
 		</data>
-		<key>Headers/NoPassSDK.h</key>
-		<data>
-		C+Tp+TBnKSabRPIC7faN4kDEt0s=
-		</data>
 		<key>Headers/SwiftyRSA.h</key>
 		<data>
 		U2c5bO6K4tGI4qmBj3+i03XWaRI=
@@ -30,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		hJaW2W4MgryNBmhw1Q5XO72+4W4=
+		Ldp9YeL6Xt09No0kewH0AHPAvwQ=
 		</data>
 		<key>LICENSE</key>
 		<data>
@@ -46,7 +42,7 @@
 		</data>
 		<key>Modules/asnpbridge.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		z0ZEziMFDcAZm4mdgryFoLiatt0=
+		WaaaGzuAAtVv1KyoFAmlcBLfQp0=
 		</data>
 		<key>Modules/asnpbridge.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -58,7 +54,7 @@
 		</data>
 		<key>Modules/asnpbridge.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		z0ZEziMFDcAZm4mdgryFoLiatt0=
+		WaaaGzuAAtVv1KyoFAmlcBLfQp0=
 		</data>
 		<key>Modules/asnpbridge.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -70,7 +66,7 @@
 		</data>
 		<key>Modules/asnpbridge.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		zYRLQmEtOIfLf5HZ3NPSg8EEZzQ=
+		HIPeUZr3RSDSV9EOpwjIeeSCssg=
 		</data>
 		<key>Modules/asnpbridge.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -82,7 +78,7 @@
 		</data>
 		<key>Modules/asnpbridge.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		zYRLQmEtOIfLf5HZ3NPSg8EEZzQ=
+		HIPeUZr3RSDSV9EOpwjIeeSCssg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -111,13 +107,6 @@
 			<key>hash2</key>
 			<data>
 			56KzIUx7CwwtC5fNoX3r7erSRc/dYPftj6gIuliwchU=
-			</data>
-		</dict>
-		<key>Headers/NoPassSDK.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			4mnxPFoONfH8WC1VwxgJLGkVyYmpOT/bebkW6u53f4k=
 			</data>
 		</dict>
 		<key>Headers/SwiftyRSA.h</key>
@@ -166,7 +155,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vDtpFoXGuK3uR4CCAgWr0pB0PIUaehajRfzd3I/FrTY=
+			A5qKwq2PmksPwCKwyyMWDkNNX/2YvCY8rXi2B1Bl9Pg=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/arm64.swiftdoc</key>
@@ -187,7 +176,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vDtpFoXGuK3uR4CCAgWr0pB0PIUaehajRfzd3I/FrTY=
+			A5qKwq2PmksPwCKwyyMWDkNNX/2YvCY8rXi2B1Bl9Pg=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -208,7 +197,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Q6ylt+Ym5C+JEEMjc9hYh/+bQBSpLbiombmjHL7KpTk=
+			pA2mTLA8xTwz///jRA/M7uWg2sEW5CPqjyLOcjEsXAg=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64.swiftdoc</key>
@@ -229,7 +218,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Q6ylt+Ym5C+JEEMjc9hYh/+bQBSpLbiombmjHL7KpTk=
+			pA2mTLA8xTwz///jRA/M7uWg2sEW5CPqjyLOcjEsXAg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

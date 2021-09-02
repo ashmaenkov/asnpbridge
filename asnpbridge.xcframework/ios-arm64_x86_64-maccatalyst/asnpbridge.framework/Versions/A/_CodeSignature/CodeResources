@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		BRsHUCEbdkq8hmQt8r4P9CLHxtA=
+		nqL8k5Lg5DlO5r9+cgJJdF0r1gQ=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		SqH7K9Hq9XRPRfmYFtRQQ5aahl8=
+		4u3GBkThdaZB7vyMGh3BsdtWfGY=
 		</data>
 		<key>Resources/LICENSE</key>
 		<data>
@@ -32,13 +32,6 @@
 			<key>hash2</key>
 			<data>
 			56KzIUx7CwwtC5fNoX3r7erSRc/dYPftj6gIuliwchU=
-			</data>
-		</dict>
-		<key>Headers/NoPassSDK.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			4mnxPFoONfH8WC1VwxgJLGkVyYmpOT/bebkW6u53f4k=
 			</data>
 		</dict>
 		<key>Headers/SwiftyRSA.h</key>
@@ -80,7 +73,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FdDFOT09nmOHkUQP8GvX/xg1f7gSkLJafx4i+vlYQbE=
+			yKPvmcB1lTfD0Zo1Z1V6/f+v5LB4wX+rwqwCcfhZcp4=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/arm64.swiftdoc</key>
@@ -101,7 +94,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FdDFOT09nmOHkUQP8GvX/xg1f7gSkLJafx4i+vlYQbE=
+			yKPvmcB1lTfD0Zo1Z1V6/f+v5LB4wX+rwqwCcfhZcp4=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
@@ -122,7 +115,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kgInsmaXLnUApzF3wy6MaNBYwEjdt1DG0UK4mmEyp5Y=
+			Xf+E4PdeVgTvYN8NBIPmrvmT8UaAnGyIa2xzubZ85sA=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64.swiftdoc</key>
@@ -143,7 +136,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kgInsmaXLnUApzF3wy6MaNBYwEjdt1DG0UK4mmEyp5Y=
+			Xf+E4PdeVgTvYN8NBIPmrvmT8UaAnGyIa2xzubZ85sA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -157,14 +150,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zzCxF2d+lEqW+jM+Q9eHG2BIY8mNaP4Zbk6H3N1Df0Q=
+			s70/BSUvptzAGUQschnEeEOAsheABxnIhMjqkybLisg=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			idnptWwwrWQpp4Z6aASGh2K58UFl4UQTFKv0uoTJRrk=
+			wuCASlN34oHIGUnVb7NjDn2qGYBtg+rJGUDKGIEhyqo=
 			</data>
 		</dict>
 		<key>Resources/LICENSE</key>
