@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "CryptLib.h"
+#import "NSData+SHA.h"
 //! Project version number for NoPassSDK.
 FOUNDATION_EXPORT double NoPassSDKVersionNumber;
 
 //! Project version string for NoPassSDK.
 FOUNDATION_EXPORT const unsigned char NoPassSDKVersionString[];
+
