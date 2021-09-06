@@ -191,7 +191,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreData;
 @import Foundation;
 @import ObjectiveC;
-@import Security;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -333,68 +332,6 @@ SWIFT_CLASS("_TtC10asnpbridge15SessionDelegate")
 - (void)URLSession:(NSURLSession * _Nonnull)session downloadTask:(NSURLSessionDownloadTask * _Nonnull)downloadTask didResumeAtOffset:(int64_t)fileOffset expectedTotalBytes:(int64_t)expectedTotalBytes;
 @end
 
-@class NSURLAuthenticationChallenge;
-@class NSURLCredential;
-
-@interface SessionDelegate (SWIFT_EXTENSION(asnpbridge)) <NSURLSessionDelegate>
-/// Tells the delegate that the session has been invalidated.
-/// \param session The session object that was invalidated.
-///
-/// \param error The error that caused invalidation, or nil if the invalidation was explicit.
-///
-- (void)URLSession:(NSURLSession * _Nonnull)session didBecomeInvalidWithError:(NSError * _Nullable)error;
-/// Requests credentials from the delegate in response to a session-level authentication request from the
-/// remote server.
-/// \param session The session containing the task that requested authentication.
-///
-/// \param challenge An object that contains the request for authentication.
-///
-/// \param completionHandler A handler that your delegate method must call providing the disposition
-/// and credential.
-///
-- (void)URLSession:(NSURLSession * _Nonnull)session didReceiveChallenge:(NSURLAuthenticationChallenge * _Nonnull)challenge completionHandler:(void (^ _Nonnull)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler;
-/// Tells the delegate that all messages enqueued for a session have been delivered.
-/// \param session The session that no longer has any outstanding requests.
-///
-- (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession * _Nonnull)session;
-@end
-
-@class NSURLSessionStreamTask;
-@class NSInputStream;
-@class NSOutputStream;
-
-SWIFT_AVAILABILITY(tvos,introduced=9.0) SWIFT_AVAILABILITY(macos,introduced=10.11) SWIFT_AVAILABILITY(ios,introduced=9.0)
-@interface SessionDelegate (SWIFT_EXTENSION(asnpbridge)) <NSURLSessionStreamDelegate>
-/// Tells the delegate that the read side of the connection has been closed.
-/// \param session The session.
-///
-/// \param streamTask The stream task.
-///
-- (void)URLSession:(NSURLSession * _Nonnull)session readClosedForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
-/// Tells the delegate that the write side of the connection has been closed.
-/// \param session The session.
-///
-/// \param streamTask The stream task.
-///
-- (void)URLSession:(NSURLSession * _Nonnull)session writeClosedForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
-/// Tells the delegate that the system has determined that a better route to the host is available.
-/// \param session The session.
-///
-/// \param streamTask The stream task.
-///
-- (void)URLSession:(NSURLSession * _Nonnull)session betterRouteDiscoveredForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
-/// Tells the delegate that the stream task has been completed and provides the unopened stream objects.
-/// \param session The session.
-///
-/// \param streamTask The stream task.
-///
-/// \param inputStream The new input stream.
-///
-/// \param outputStream The new output stream.
-///
-- (void)URLSession:(NSURLSession * _Nonnull)session streamTask:(NSURLSessionStreamTask * _Nonnull)streamTask didBecomeInputStream:(NSInputStream * _Nonnull)inputStream outputStream:(NSOutputStream * _Nonnull)outputStream;
-@end
-
 @class NSURLSessionDataTask;
 @class NSURLResponse;
 @class NSCachedURLResponse;
@@ -443,6 +380,68 @@ SWIFT_AVAILABILITY(tvos,introduced=9.0) SWIFT_AVAILABILITY(macos,introduced=10.1
 /// handler; otherwise, your app leaks memory.
 ///
 - (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask willCacheResponse:(NSCachedURLResponse * _Nonnull)proposedResponse completionHandler:(void (^ _Nonnull)(NSCachedURLResponse * _Nullable))completionHandler;
+@end
+
+@class NSURLSessionStreamTask;
+@class NSInputStream;
+@class NSOutputStream;
+
+SWIFT_AVAILABILITY(tvos,introduced=9.0) SWIFT_AVAILABILITY(macos,introduced=10.11) SWIFT_AVAILABILITY(ios,introduced=9.0)
+@interface SessionDelegate (SWIFT_EXTENSION(asnpbridge)) <NSURLSessionStreamDelegate>
+/// Tells the delegate that the read side of the connection has been closed.
+/// \param session The session.
+///
+/// \param streamTask The stream task.
+///
+- (void)URLSession:(NSURLSession * _Nonnull)session readClosedForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
+/// Tells the delegate that the write side of the connection has been closed.
+/// \param session The session.
+///
+/// \param streamTask The stream task.
+///
+- (void)URLSession:(NSURLSession * _Nonnull)session writeClosedForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
+/// Tells the delegate that the system has determined that a better route to the host is available.
+/// \param session The session.
+///
+/// \param streamTask The stream task.
+///
+- (void)URLSession:(NSURLSession * _Nonnull)session betterRouteDiscoveredForStreamTask:(NSURLSessionStreamTask * _Nonnull)streamTask;
+/// Tells the delegate that the stream task has been completed and provides the unopened stream objects.
+/// \param session The session.
+///
+/// \param streamTask The stream task.
+///
+/// \param inputStream The new input stream.
+///
+/// \param outputStream The new output stream.
+///
+- (void)URLSession:(NSURLSession * _Nonnull)session streamTask:(NSURLSessionStreamTask * _Nonnull)streamTask didBecomeInputStream:(NSInputStream * _Nonnull)inputStream outputStream:(NSOutputStream * _Nonnull)outputStream;
+@end
+
+@class NSURLAuthenticationChallenge;
+@class NSURLCredential;
+
+@interface SessionDelegate (SWIFT_EXTENSION(asnpbridge)) <NSURLSessionDelegate>
+/// Tells the delegate that the session has been invalidated.
+/// \param session The session object that was invalidated.
+///
+/// \param error The error that caused invalidation, or nil if the invalidation was explicit.
+///
+- (void)URLSession:(NSURLSession * _Nonnull)session didBecomeInvalidWithError:(NSError * _Nullable)error;
+/// Requests credentials from the delegate in response to a session-level authentication request from the
+/// remote server.
+/// \param session The session containing the task that requested authentication.
+///
+/// \param challenge An object that contains the request for authentication.
+///
+/// \param completionHandler A handler that your delegate method must call providing the disposition
+/// and credential.
+///
+- (void)URLSession:(NSURLSession * _Nonnull)session didReceiveChallenge:(NSURLAuthenticationChallenge * _Nonnull)challenge completionHandler:(void (^ _Nonnull)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler;
+/// Tells the delegate that all messages enqueued for a session have been delivered.
+/// \param session The session that no longer has any outstanding requests.
+///
+- (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession * _Nonnull)session;
 @end
 
 @class NSURLSessionTask;
@@ -523,105 +522,6 @@ SWIFT_CLASS("_TtC10asnpbridge12TaskDelegate")
 @end
 
 
-
-@class PublicKey;
-@class EncryptedMessage;
-@class PrivateKey;
-enum DigestType : NSInteger;
-@class Signature;
-@class VerificationResult;
-
-SWIFT_CLASS_NAMED("_objc_ClearMessage")
-@interface ClearMessage : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull base64String;
-@property (nonatomic, readonly, copy) NSData * _Nonnull data;
-- (nonnull instancetype)initWithData:(NSData * _Nonnull)data OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithString:(NSString * _Nonnull)string using:(NSUInteger)rawEncoding error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithBase64Encoded:(NSString * _Nonnull)base64String error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (NSString * _Nullable)stringWithEncoding:(NSUInteger)rawEncoding error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (EncryptedMessage * _Nullable)encryptedWith:(PublicKey * _Nonnull)key padding:(SecPadding)padding error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (Signature * _Nullable)signedWith:(PrivateKey * _Nonnull)key digestType:(enum DigestType)digestType error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (VerificationResult * _Nullable)verifyWith:(PublicKey * _Nonnull)key signature:(Signature * _Nonnull)signature digestType:(enum DigestType)digestType error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS_NAMED("_objc_EncryptedMessage")
-@interface EncryptedMessage : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull base64String;
-@property (nonatomic, readonly, copy) NSData * _Nonnull data;
-- (nonnull instancetype)initWithData:(NSData * _Nonnull)data OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithBase64Encoded:(NSString * _Nonnull)base64String error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (ClearMessage * _Nullable)decryptedWith:(PrivateKey * _Nonnull)key padding:(SecPadding)padding error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-@class NSBundle;
-
-SWIFT_CLASS_NAMED("_objc_PrivateKey")
-@interface PrivateKey : NSObject
-@property (nonatomic, readonly) SecKeyRef _Nonnull reference;
-@property (nonatomic, readonly, copy) NSData * _Nullable originalData;
-- (NSString * _Nullable)pemStringAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nullable)base64StringAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (nullable instancetype)initWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithReference:(SecKeyRef _Nonnull)reference error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithBase64Encoded:(NSString * _Nonnull)base64String error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithPemEncoded:(NSString * _Nonnull)pemString error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithPemNamed:(NSString * _Nonnull)pemName in:(NSBundle * _Nonnull)bundle error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithDerNamed:(NSString * _Nonnull)derName in:(NSBundle * _Nonnull)bundle error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS_NAMED("_objc_PublicKey")
-@interface PublicKey : NSObject
-@property (nonatomic, readonly) SecKeyRef _Nonnull reference;
-@property (nonatomic, readonly, copy) NSData * _Nullable originalData;
-- (NSString * _Nullable)pemStringAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nullable)base64StringAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (nullable instancetype)initWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithReference:(SecKeyRef _Nonnull)reference error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithBase64Encoded:(NSString * _Nonnull)base64String error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithPemEncoded:(NSString * _Nonnull)pemString error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithPemNamed:(NSString * _Nonnull)pemName in:(NSBundle * _Nonnull)bundle error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithDerNamed:(NSString * _Nonnull)derName in:(NSBundle * _Nonnull)bundle error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-+ (NSArray<PublicKey *> * _Nonnull)publicKeysWithPemEncoded:(NSString * _Nonnull)pemString SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS_NAMED("_objc_Signature")
-@interface Signature : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull base64String;
-@property (nonatomic, readonly, copy) NSData * _Nonnull data;
-- (nonnull instancetype)initWithData:(NSData * _Nonnull)data OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithBase64Encoded:(NSString * _Nonnull)base64String error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-typedef SWIFT_ENUM(NSInteger, DigestType, open) {
-  DigestTypeSha1 = 0,
-  DigestTypeSha224 = 1,
-  DigestTypeSha256 = 2,
-  DigestTypeSha384 = 3,
-  DigestTypeSha512 = 4,
-};
-
-
-SWIFT_CLASS_NAMED("_objc_VerificationResult")
-@interface VerificationResult : NSObject
-@property (nonatomic, readonly) BOOL isSuccessful;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

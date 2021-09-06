@@ -11,18 +11,6 @@ import Swift
 import SystemConfiguration
 import UIKit
 @_exported import asnpbridge
-public protocol Message {
-  var data: Foundation.Data { get }
-  var base64String: Swift.String { get }
-  init(data: Foundation.Data)
-  init(base64Encoded base64String: Swift.String) throws
-}
-extension Message {
-  public var base64String: Swift.String {
-    get
-  }
-  public init(base64Encoded base64String: Swift.String) throws
-}
 @_hasMissingDesignatedInitializers open class NetworkReachabilityManager {
   public enum NetworkReachabilityStatus {
     case unknown
@@ -160,41 +148,12 @@ public protocol RestoreFlowDelegate : AnyObject {
   func restoreDidFinish(error: asnpbridge.NopassError?)
   func accountDidRestore(account: asnpbridge.NoPassAccount?)
 }
-public class PrivateKey : asnpbridge.Key {
-  final public let reference: Security.SecKey
-  final public let originalData: Foundation.Data?
-  public func pemString() throws -> Swift.String
-  required public init(reference: Security.SecKey) throws
-  required public init(data: Foundation.Data) throws
-  @objc deinit
-}
 @_hasMissingDesignatedInitializers open class MultipartFormData {
   open var contentType: Swift.String {
     get
     set
   }
   @objc deinit
-}
-public protocol Key : AnyObject {
-  var reference: Security.SecKey { get }
-  var originalData: Foundation.Data? { get }
-  init(data: Foundation.Data) throws
-  init(reference: Security.SecKey) throws
-  init(base64Encoded base64String: Swift.String) throws
-  init(pemEncoded pemString: Swift.String) throws
-  init(pemNamed pemName: Swift.String, in bundle: Foundation.Bundle) throws
-  init(derNamed derName: Swift.String, in bundle: Foundation.Bundle) throws
-  func pemString() throws -> Swift.String
-  func data() throws -> Foundation.Data
-  func base64String() throws -> Swift.String
-}
-extension Key {
-  public func base64String() throws -> Swift.String
-  public func data() throws -> Foundation.Data
-  public init(base64Encoded base64String: Swift.String) throws
-  public init(pemEncoded pemString: Swift.String) throws
-  public init(pemNamed pemName: Swift.String, in bundle: Foundation.Bundle = Bundle.main) throws
-  public init(derNamed derName: Swift.String, in bundle: Foundation.Bundle = Bundle.main) throws
 }
 public enum HTTPMethod : Swift.String {
   case options
@@ -257,27 +216,6 @@ public struct URLEncoding {
   public func queryComponents(fromKey key: Swift.String, value: Any) -> [(Swift.String, Swift.String)]
   public func escape(_ string: Swift.String) -> Swift.String
 }
-public class Signature {
-  public enum DigestType {
-    case sha1
-    case sha224
-    case sha256
-    case sha384
-    case sha512
-    public static func == (a: asnpbridge.Signature.DigestType, b: asnpbridge.Signature.DigestType) -> Swift.Bool
-    public var hashValue: Swift.Int {
-      get
-    }
-    public func hash(into hasher: inout Swift.Hasher)
-  }
-  final public let data: Foundation.Data
-  public init(data: Foundation.Data)
-  convenience public init(base64Encoded base64String: Swift.String) throws
-  public var base64String: Swift.String {
-    get
-  }
-  @objc deinit
-}
 public protocol NoPassSynchronisationServiceDelegate : AnyObject {
   func synchronisationDidFinish()
   func syncRegistrationCode(code: Swift.String, isNeedConfirmationCode: Swift.Bool)
@@ -299,15 +237,6 @@ public struct NoPassAuthModel {
   public let userName: Swift.String
   public let portalName: Swift.String
   public func toDictionaryForRN() -> Swift.Dictionary<Swift.String, Swift.String>
-}
-public class PublicKey : asnpbridge.Key {
-  final public let reference: Security.SecKey
-  final public let originalData: Foundation.Data?
-  public func pemString() throws -> Swift.String
-  required public init(reference: Security.SecKey) throws
-  required public init(data: Foundation.Data) throws
-  public static func publicKeys(pemEncoded pemString: Swift.String) -> [asnpbridge.PublicKey]
-  @objc deinit
 }
 @_hasMissingDesignatedInitializers public class NoPassAccountService {
   public static let shared: asnpbridge.NoPassAccountService
@@ -332,31 +261,6 @@ public struct NoPassHistory {
   public let hex: Swift.String
   public let isSuccesAuth: Swift.Bool
   public func toDictionaryForRN() -> Swift.Dictionary<Swift.String, Any>
-}
-public enum SwiftyRSAError : Swift.Error {
-  case pemDoesNotContainKey
-  case keyRepresentationFailed(error: CoreFoundation.CFError?)
-  case keyGenerationFailed(error: CoreFoundation.CFError?)
-  case keyCreateFailed(error: CoreFoundation.CFError?)
-  case keyAddFailed(status: Darwin.OSStatus)
-  case keyCopyFailed(status: Darwin.OSStatus)
-  case tagEncodingFailed
-  case asn1ParsingFailed
-  case invalidAsn1RootNode
-  case invalidAsn1Structure
-  case invalidBase64String
-  case chunkDecryptFailed(index: Swift.Int)
-  case chunkEncryptFailed(index: Swift.Int)
-  case stringToDataConversionFailed
-  case dataToStringConversionFailed
-  case invalidDigestSize(digestSize: Swift.Int, maxChunkSize: Swift.Int)
-  case signatureCreateFailed(status: Darwin.OSStatus)
-  case signatureVerifyFailed(status: Darwin.OSStatus)
-  case pemFileNotFound(name: Swift.String)
-  case derFileNotFound(name: Swift.String)
-  case notAPublicKey
-  case notAPrivateKey
-  case x509CertificateFailed
 }
 public enum DeclineType : Swift.String {
   case skipPressed
@@ -397,109 +301,6 @@ extension Notification {
     public static let Task: Swift.String
     public static let ResponseData: Swift.String
   }
-}
-@objc(PublicKey) public class _objc_PublicKey : ObjectiveC.NSObject, asnpbridge.Key {
-  @objc public var reference: Security.SecKey {
-    @objc get
-  }
-  @objc public var originalData: Foundation.Data? {
-    @objc get
-  }
-  @objc public func pemString() throws -> Swift.String
-  @objc public func data() throws -> Foundation.Data
-  @objc public func base64String() throws -> Swift.String
-  required public init(swiftValue: asnpbridge.PublicKey)
-  @objc required public init(data: Foundation.Data) throws
-  @objc required public init(reference: Security.SecKey) throws
-  @objc required public init(base64Encoded base64String: Swift.String) throws
-  @objc required public init(pemEncoded pemString: Swift.String) throws
-  @objc required public init(pemNamed pemName: Swift.String, in bundle: Foundation.Bundle) throws
-  @objc required public init(derNamed derName: Swift.String, in bundle: Foundation.Bundle) throws
-  @objc public static func publicKeys(pemEncoded pemString: Swift.String) -> [asnpbridge._objc_PublicKey]
-  @objc deinit
-  @objc override dynamic public init()
-}
-@objc(PrivateKey) public class _objc_PrivateKey : ObjectiveC.NSObject, asnpbridge.Key {
-  @objc public var reference: Security.SecKey {
-    @objc get
-  }
-  @objc public var originalData: Foundation.Data? {
-    @objc get
-  }
-  @objc public func pemString() throws -> Swift.String
-  @objc public func data() throws -> Foundation.Data
-  @objc public func base64String() throws -> Swift.String
-  required public init(swiftValue: asnpbridge.PrivateKey)
-  @objc required public init(data: Foundation.Data) throws
-  @objc required public init(reference: Security.SecKey) throws
-  @objc required public init(base64Encoded base64String: Swift.String) throws
-  @objc required public init(pemEncoded pemString: Swift.String) throws
-  @objc required public init(pemNamed pemName: Swift.String, in bundle: Foundation.Bundle) throws
-  @objc required public init(derNamed derName: Swift.String, in bundle: Foundation.Bundle) throws
-  @objc deinit
-  @objc override dynamic public init()
-}
-@_hasMissingDesignatedInitializers @objc(VerificationResult) public class _objc_VerificationResult : ObjectiveC.NSObject {
-  @objc final public let isSuccessful: Swift.Bool
-  @objc deinit
-  @objc override dynamic public init()
-}
-@objc(ClearMessage) public class _objc_ClearMessage : ObjectiveC.NSObject, asnpbridge.Message {
-  @objc public var base64String: Swift.String {
-    @objc get
-  }
-  @objc public var data: Foundation.Data {
-    @objc get
-  }
-  required public init(swiftValue: asnpbridge.ClearMessage)
-  @objc required public init(data: Foundation.Data)
-  @objc required public init(string: Swift.String, using rawEncoding: Swift.UInt) throws
-  @objc required public init(base64Encoded base64String: Swift.String) throws
-  @objc public func string(encoding rawEncoding: Swift.UInt) throws -> Swift.String
-  @objc public func encrypted(with key: asnpbridge._objc_PublicKey, padding: asnpbridge.Padding) throws -> asnpbridge._objc_EncryptedMessage
-  @objc public func signed(with key: asnpbridge._objc_PrivateKey, digestType: asnpbridge._objc_Signature.DigestType) throws -> asnpbridge._objc_Signature
-  @objc public func verify(with key: asnpbridge._objc_PublicKey, signature: asnpbridge._objc_Signature, digestType: asnpbridge._objc_Signature.DigestType) throws -> asnpbridge._objc_VerificationResult
-  @objc deinit
-  @objc override dynamic public init()
-}
-@objc(EncryptedMessage) public class _objc_EncryptedMessage : ObjectiveC.NSObject, asnpbridge.Message {
-  @objc public var base64String: Swift.String {
-    @objc get
-  }
-  @objc public var data: Foundation.Data {
-    @objc get
-  }
-  required public init(swiftValue: asnpbridge.EncryptedMessage)
-  @objc required public init(data: Foundation.Data)
-  @objc required public init(base64Encoded base64String: Swift.String) throws
-  @objc public func decrypted(with key: asnpbridge._objc_PrivateKey, padding: asnpbridge.Padding) throws -> asnpbridge._objc_ClearMessage
-  @objc deinit
-  @objc override dynamic public init()
-}
-@objc(Signature) public class _objc_Signature : ObjectiveC.NSObject {
-  @objc public enum DigestType : Swift.Int {
-    case sha1
-    case sha224
-    case sha256
-    case sha384
-    case sha512
-    public typealias RawValue = Swift.Int
-    public init?(rawValue: Swift.Int)
-    public var rawValue: Swift.Int {
-      get
-    }
-  }
-  @objc public var base64String: Swift.String {
-    @objc get
-  }
-  @objc public var data: Foundation.Data {
-    @objc get
-  }
-  required public init(swiftValue: asnpbridge.Signature)
-  @objc public init(data: Foundation.Data)
-  @objc required public init(base64Encoded base64String: Swift.String) throws
-  @objc deinit
-  @objc override dynamic public init()
 }
 public enum NoPassPushNotificationWorkflow : Swift.Int {
   case UserAuthentication
@@ -618,11 +419,6 @@ public enum AuthStatus {
   }
   public func hash(into hasher: inout Swift.Hasher)
 }
-extension Data {
-  public func prependx509Header() -> Foundation.Data
-  public func hasX509Header() throws -> Swift.Bool
-  public func isAnHeaderlessKey() throws -> Swift.Bool
-}
 @objc @_inheritsConvenienceInitializers open class NetworkManager : ObjectiveC.NSObject {
   @objc override dynamic public init()
   @objc deinit
@@ -647,11 +443,6 @@ public protocol NoPassAuthServiceDelegate : AnyObject {
   public func authorize(enabled2FaMethod: asnpbridge.BiometricType = .null, isScreenLock: Swift.Bool)
   public func decline(type: asnpbridge.DeclineType, enabled2FaMethod: asnpbridge.BiometricType, isScreenLock: Swift.Bool)
   @objc deinit
-}
-public typealias Padding = Security.SecPadding
-public enum SwiftyRSA {
-  @available(iOS 10.0, watchOS 3.0, tvOS 10.0, *)
-  public static func generateRSAKeyPair(sizeInBits size: Swift.Int) throws -> (privateKey: asnpbridge.PrivateKey, publicKey: asnpbridge.PublicKey)
 }
 public protocol NoPassRegistrationServiceDelegate : AnyObject {
   func registration(account: asnpbridge.NoPassAccount?, error: asnpbridge.NopassError?)
@@ -704,12 +495,6 @@ extension NopassError {
   open func clear() -> Swift.Bool
   @objc deinit
 }
-public class EncryptedMessage : asnpbridge.Message {
-  final public let data: Foundation.Data
-  required public init(data: Foundation.Data)
-  public func decrypted(with key: asnpbridge.PrivateKey, padding: asnpbridge.Padding) throws -> asnpbridge.ClearMessage
-  @objc deinit
-}
 @_hasMissingDesignatedInitializers public class NoPassMigrationService {
   public static var shared: asnpbridge.NoPassMigrationService
   public func saveAccount(userCode: Swift.String, userName: Swift.String, portalName: Swift.String, userseed: Swift.String, portalUrl: Swift.String, serverUrl: Swift.String, alias: Swift.String, createdDate: Foundation.Date, hex: Swift.String)
@@ -740,16 +525,6 @@ public enum BiometricType : Swift.String {
   public var rawValue: Swift.String {
     get
   }
-}
-public class ClearMessage : asnpbridge.Message {
-  final public let data: Foundation.Data
-  required public init(data: Foundation.Data)
-  convenience public init(string: Swift.String, using encoding: Swift.String.Encoding) throws
-  public func string(encoding: Swift.String.Encoding) throws -> Swift.String
-  public func encrypted(with key: asnpbridge.PublicKey, padding: asnpbridge.Padding) throws -> asnpbridge.EncryptedMessage
-  public func signed(with key: asnpbridge.PrivateKey, digestType: asnpbridge.Signature.DigestType) throws -> asnpbridge.Signature
-  public func verify(with key: asnpbridge.PublicKey, signature: asnpbridge.Signature, digestType: asnpbridge.Signature.DigestType) throws -> Swift.Bool
-  @objc deinit
 }
 public struct NoPassAccount {
   public let userCode: Swift.String
@@ -860,14 +635,9 @@ extension asnpbridge.URLEncoding.ArrayEncoding : Swift.Equatable {}
 extension asnpbridge.URLEncoding.ArrayEncoding : Swift.Hashable {}
 extension asnpbridge.URLEncoding.BoolEncoding : Swift.Equatable {}
 extension asnpbridge.URLEncoding.BoolEncoding : Swift.Hashable {}
-extension asnpbridge.Signature.DigestType : Swift.Equatable {}
-extension asnpbridge.Signature.DigestType : Swift.Hashable {}
 extension asnpbridge.DeclineType : Swift.Equatable {}
 extension asnpbridge.DeclineType : Swift.Hashable {}
 extension asnpbridge.DeclineType : Swift.RawRepresentable {}
-extension asnpbridge._objc_Signature.DigestType : Swift.Equatable {}
-extension asnpbridge._objc_Signature.DigestType : Swift.Hashable {}
-extension asnpbridge._objc_Signature.DigestType : Swift.RawRepresentable {}
 extension asnpbridge.NoPassPushNotificationWorkflow : Swift.Equatable {}
 extension asnpbridge.NoPassPushNotificationWorkflow : Swift.Hashable {}
 extension asnpbridge.NoPassPushNotificationWorkflow : Swift.RawRepresentable {}
