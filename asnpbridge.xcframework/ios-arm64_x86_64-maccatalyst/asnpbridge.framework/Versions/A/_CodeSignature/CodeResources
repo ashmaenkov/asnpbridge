@@ -73,7 +73,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NGMGR/9ZExIEd8BO4nOufW18E5dmUDrtEIVshgACwQQ=
+			yKPvmcB1lTfD0Zo1Z1V6/f+v5LB4wX+rwqwCcfhZcp4=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/arm64.swiftdoc</key>
@@ -94,7 +94,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NGMGR/9ZExIEd8BO4nOufW18E5dmUDrtEIVshgACwQQ=
+			yKPvmcB1lTfD0Zo1Z1V6/f+v5LB4wX+rwqwCcfhZcp4=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
@@ -115,7 +115,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kYEmmAlhcVnuGtnHSbLkUjIPerYWuCeu5kRtNN3pn7A=
+			Xf+E4PdeVgTvYN8NBIPmrvmT8UaAnGyIa2xzubZ85sA=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64.swiftdoc</key>
@@ -136,7 +136,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kYEmmAlhcVnuGtnHSbLkUjIPerYWuCeu5kRtNN3pn7A=
+			Xf+E4PdeVgTvYN8NBIPmrvmT8UaAnGyIa2xzubZ85sA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
