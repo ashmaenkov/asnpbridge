@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		nqL8k5Lg5DlO5r9+cgJJdF0r1gQ=
+		URuO/ReMAvEKvKVqoUDZCiEAvjQ=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		4u3GBkThdaZB7vyMGh3BsdtWfGY=
+		Zlywge7cOayGOo1WdenP5F0ejsQ=
 		</data>
 		<key>Resources/LICENSE</key>
 		<data>
@@ -45,7 +45,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			apZLaCLiE84o/lct14SJKMg/1msTnMVEuojKKl6ebdg=
+			rPKwGnEHQjv8y81obolQU1RTLg2KHGYuOP9ZkhxRLrw=
 			</data>
 		</dict>
 		<key>Headers/asnpbridge.h</key>
@@ -59,84 +59,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			u4/0Y4JsOof7+KA7zgM89Dh/3mTgC/jD1kcxFH1JBA0=
+			uV1ed2KmVrJK55ERJydWFycGPAbaIZTH2ESM5TBXzXo=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tTBXsqEsl4etOJ9Mlb+fQOI/MJhhdZUc03xXRw9+klU=
+			kD2sN4m/ZIYYAALI8+h9msCzk7onv4ofzG6AZHcOWPE=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pdW6lqqn3c4EYUQ/Una1Yto1OXnukBVTzww005IdUNc=
+			5/RLERoMGaJYMY27MfLaLW88GLD+seeEaA39oHONmxo=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			u4/0Y4JsOof7+KA7zgM89Dh/3mTgC/jD1kcxFH1JBA0=
+			uV1ed2KmVrJK55ERJydWFycGPAbaIZTH2ESM5TBXzXo=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tTBXsqEsl4etOJ9Mlb+fQOI/MJhhdZUc03xXRw9+klU=
+			kD2sN4m/ZIYYAALI8+h9msCzk7onv4ofzG6AZHcOWPE=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pdW6lqqn3c4EYUQ/Una1Yto1OXnukBVTzww005IdUNc=
+			5/RLERoMGaJYMY27MfLaLW88GLD+seeEaA39oHONmxo=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ONrwCk9Y7juc2w4dv3OXp4HtotKrzdK4PjIUudUUqnI=
+			hitCXr/zNPXju8T5ohcqJPwmZj5NMJl15jwvlfiWC2I=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jf6tpbh4AvJGrMbwa5KzO8jkFKBOQTkP0MaFVh9czcs=
+			Xo9HnEFMlS5pvo66XpXaX3SrwFwE2jG5UvSiDmrQQhs=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BMkVa8KnIp5wBi3c04sL5nk8LccCwx5Q+3945Ubiv/Y=
+			zMZxIDPQUuEbp97KM4NgSeR4IOTAcAAo1lLCjbc/o9Y=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ONrwCk9Y7juc2w4dv3OXp4HtotKrzdK4PjIUudUUqnI=
+			hitCXr/zNPXju8T5ohcqJPwmZj5NMJl15jwvlfiWC2I=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jf6tpbh4AvJGrMbwa5KzO8jkFKBOQTkP0MaFVh9czcs=
+			Xo9HnEFMlS5pvo66XpXaX3SrwFwE2jG5UvSiDmrQQhs=
 			</data>
 		</dict>
 		<key>Modules/asnpbridge.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BMkVa8KnIp5wBi3c04sL5nk8LccCwx5Q+3945Ubiv/Y=
+			zMZxIDPQUuEbp97KM4NgSeR4IOTAcAAo1lLCjbc/o9Y=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -150,14 +150,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			s70/BSUvptzAGUQschnEeEOAsheABxnIhMjqkybLisg=
+			77VCV1MVQSR1WiySGLTxi1ldASsqIpbvWUcatkMkiiA=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wuCASlN34oHIGUnVb7NjDn2qGYBtg+rJGUDKGIEhyqo=
+			BXg9ii+wGJaaopi/Znex5u+RlkBJspKVE0ttwvrNMBE=
 			</data>
 		</dict>
 		<key>Resources/LICENSE</key>

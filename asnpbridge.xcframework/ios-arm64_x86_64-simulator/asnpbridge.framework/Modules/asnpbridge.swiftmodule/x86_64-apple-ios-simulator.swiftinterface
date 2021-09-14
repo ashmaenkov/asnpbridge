@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name asnpbridge
 import CommonCrypto
 import CoreData
@@ -21,10 +21,10 @@ import UIKit
     case ethernetOrWiFi
     case wwan
     public static func == (a: asnpbridge.NetworkReachabilityManager.ConnectionType, b: asnpbridge.NetworkReachabilityManager.ConnectionType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public typealias Listener = (asnpbridge.NetworkReachabilityManager.NetworkReachabilityStatus) -> Swift.Void
   open var isReachable: Swift.Bool {
@@ -136,7 +136,7 @@ extension Request : Swift.CustomDebugStringConvertible {
   }
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
 open class StreamRequest : asnpbridge.Request {
   @objc deinit
 }
@@ -165,8 +165,8 @@ public enum HTTPMethod : Swift.String {
   case delete
   case trace
   case connect
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -176,26 +176,26 @@ public struct URLEncoding {
   public enum Destination {
     case methodDependent, queryString, httpBody
     public static func == (a: asnpbridge.URLEncoding.Destination, b: asnpbridge.URLEncoding.Destination) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public enum ArrayEncoding {
     case brackets, noBrackets
     public static func == (a: asnpbridge.URLEncoding.ArrayEncoding, b: asnpbridge.URLEncoding.ArrayEncoding) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public enum BoolEncoding {
     case numeric, literal
     public static func == (a: asnpbridge.URLEncoding.BoolEncoding, b: asnpbridge.URLEncoding.BoolEncoding) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public static var `default`: asnpbridge.URLEncoding {
     get
@@ -271,8 +271,8 @@ public enum DeclineType : Swift.String {
   case wrongCode
   case localAuthFailedPin
   case deviceDifferentTime
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -285,8 +285,8 @@ extension Date {
   @objc public static func setSecretKey(_ key: Swift.String)
   @objc public static func setCurrentGPSCordinate(_ latitude: Swift.Double, longitude: Swift.Double)
   @objc public static func enableLogs(_ enabled: Swift.Bool)
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension NSNotification.Name {
   public struct Task {
@@ -313,8 +313,8 @@ public enum NoPassPushNotificationWorkflow : Swift.Int {
   case AccountSynchronization
   case unowned
   public func notificationName() -> Swift.String
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -349,22 +349,22 @@ public enum NoPassPushNotificationWorkflow : Swift.Int {
   open var downloadTaskDidFinishDownloadingToURL: ((Foundation.URLSession, Foundation.URLSessionDownloadTask, Foundation.URL) -> Swift.Void)?
   open var downloadTaskDidWriteData: ((Foundation.URLSession, Foundation.URLSessionDownloadTask, Swift.Int64, Swift.Int64, Swift.Int64) -> Swift.Void)?
   open var downloadTaskDidResumeAtOffset: ((Foundation.URLSession, Foundation.URLSessionDownloadTask, Swift.Int64, Swift.Int64) -> Swift.Void)?
-  @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
+  @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
   open var streamTaskReadClosed: ((Foundation.URLSession, Foundation.URLSessionStreamTask) -> Swift.Void)? {
     get
     set
   }
-  @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
+  @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
   open var streamTaskWriteClosed: ((Foundation.URLSession, Foundation.URLSessionStreamTask) -> Swift.Void)? {
     get
     set
   }
-  @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
+  @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
   open var streamTaskBetterRouteDiscovered: ((Foundation.URLSession, Foundation.URLSessionStreamTask) -> Swift.Void)? {
     get
     set
   }
-  @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
+  @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
   open var streamTaskDidBecomeInputAndOutputStreams: ((Foundation.URLSession, Foundation.URLSessionStreamTask, Foundation.InputStream, Foundation.OutputStream) -> Swift.Void)? {
     get
     set
@@ -386,7 +386,7 @@ extension SessionDelegate : Foundation.URLSessionTaskDelegate {
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, needNewBodyStream completionHandler: @escaping (Foundation.InputStream?) -> Swift.Void)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
-  @available(iOS 10.0, OSX 10.12, tvOS 10.0, *)
+  @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
   @objc(URLSession:task:didFinishCollectingMetrics:) dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didFinishCollecting metrics: Foundation.URLSessionTaskMetrics)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
 }
@@ -401,7 +401,7 @@ extension SessionDelegate : Foundation.URLSessionDownloadDelegate {
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didWriteData bytesWritten: Swift.Int64, totalBytesWritten: Swift.Int64, totalBytesExpectedToWrite: Swift.Int64)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didResumeAtOffset fileOffset: Swift.Int64, expectedTotalBytes: Swift.Int64)
 }
-@available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
+@available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
 extension SessionDelegate : Foundation.URLSessionStreamDelegate {
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, readClosedFor streamTask: Foundation.URLSessionStreamTask)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, writeClosedFor streamTask: Foundation.URLSessionStreamTask)
@@ -414,10 +414,10 @@ public enum AuthStatus {
   case declineFromOtherDevice
   public func toDictionaryForRN() -> Swift.Dictionary<Swift.AnyHashable, Any?>
   public static func == (a: asnpbridge.AuthStatus, b: asnpbridge.AuthStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 @objc @_inheritsConvenienceInitializers open class NetworkManager : ObjectiveC.NSObject {
   @objc override dynamic public init()
@@ -520,8 +520,8 @@ public enum BiometricType : Swift.String {
   case NativeFaceId
   case NativePinCode
   case PinCode
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -543,8 +543,8 @@ public struct NoPassAccount {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(Account) public class Account : CoreData.NSManagedObject {
-  @objc deinit
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc deinit
 }
 extension Account {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<asnpbridge.Account>
@@ -594,8 +594,8 @@ extension Account {
   }
 }
 @_inheritsConvenienceInitializers @objc(AuthHistory) public class AuthHistory : CoreData.NSManagedObject {
-  @objc deinit
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc deinit
 }
 extension AuthHistory {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<asnpbridge.AuthHistory>
