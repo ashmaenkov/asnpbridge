@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name asnpbridge
 import CommonCrypto
 import CoreData
@@ -10,6 +10,7 @@ import Security
 import Swift
 import SystemConfiguration
 import UIKit
+import _Concurrency
 @_exported import asnpbridge
 @_hasMissingDesignatedInitializers open class NetworkReachabilityManager {
   public enum NetworkReachabilityStatus {
@@ -52,7 +53,7 @@ import UIKit
   open func startListening() -> Swift.Bool
   open func stopListening()
 }
-extension NetworkReachabilityManager.NetworkReachabilityStatus : Swift.Equatable {
+extension asnpbridge.NetworkReachabilityManager.NetworkReachabilityStatus : Swift.Equatable {
 }
 public func == (lhs: asnpbridge.NetworkReachabilityManager.NetworkReachabilityStatus, rhs: asnpbridge.NetworkReachabilityManager.NetworkReachabilityStatus) -> Swift.Bool
 public func setLogEnabled(_ enabled: Swift.Bool)
@@ -96,12 +97,12 @@ public func setLogEnabled(_ enabled: Swift.Bool)
   open func cancel()
   @objc deinit
 }
-extension Request : Swift.CustomStringConvertible {
+extension asnpbridge.Request : Swift.CustomStringConvertible {
   open var description: Swift.String {
     get
   }
 }
-extension Request : Swift.CustomDebugStringConvertible {
+extension asnpbridge.Request : Swift.CustomDebugStringConvertible {
   open var debugDescription: Swift.String {
     get
   }
@@ -229,7 +230,7 @@ public protocol NoPassSynchronisationServiceDelegate : AnyObject {
   public func finishAccountSynchronisation(confirmId: Swift.String, enabled2FaMethod: asnpbridge.BiometricType, isScreenLock: Swift.Bool)
   @objc deinit
 }
-extension NoPassSynchronisationService : asnpbridge.NoPassRegistrationServiceDelegate {
+extension asnpbridge.NoPassSynchronisationService : asnpbridge.NoPassRegistrationServiceDelegate {
   public func registrationCode(code: Swift.String, isNeedConfirmationCode: Swift.Bool)
   public func registration(account: asnpbridge.NoPassAccount?, error: asnpbridge.NopassError?)
 }
@@ -244,7 +245,7 @@ public struct NoPassAuthModel {
   public func fetchAccounts() -> [asnpbridge.NoPassAccount]
   public func fetchAccount(userCode: Swift.String) -> asnpbridge.NoPassAccount?
   public func fetchHisory() -> [asnpbridge.NoPassHistory]
-  public func removeAccount(account: asnpbridge.NoPassAccount, enabled2FaMethod: asnpbridge.BiometricType, isScreenLock: Swift.Bool, completion: ((Foundation.NSError?) -> Swift.Void)?)
+  public func removeAccount(account: asnpbridge.NoPassAccount, enabled2FaMethod: asnpbridge.BiometricType, isScreenLock: Swift.Bool, completion: ((_ error: Foundation.NSError?) -> Swift.Void)?)
   public func clearBackupData()
   public func emptymptyBackupData(pin: Swift.String) -> Swift.String
   public func isCanDecodeBackupFile(encodedString: Swift.String, pin: Swift.String) -> Swift.Bool
@@ -277,7 +278,7 @@ public enum DeclineType : Swift.String {
     get
   }
 }
-extension Date {
+extension Foundation.Date {
   public func stringDate(format: Swift.String = "yyyy-MM-dd'T'HH:mm:ss.SSS", timeZone: Foundation.TimeZone = .current) -> Swift.String
   public func stringDate(_ timeZone: Foundation.TimeZone = .current, dateStyle: Foundation.DateFormatter.Style, timeStyle: Foundation.DateFormatter.Style) -> Swift.String
 }
@@ -288,7 +289,7 @@ extension Date {
   @objc override dynamic public init()
   @objc deinit
 }
-extension NSNotification.Name {
+extension Foundation.NSNotification.Name {
   public struct Task {
     public static let DidResume: Foundation.Notification.Name
     public static let DidSuspend: Foundation.Notification.Name
@@ -296,7 +297,7 @@ extension NSNotification.Name {
     public static let DidComplete: Foundation.Notification.Name
   }
 }
-extension Notification {
+extension Foundation.Notification {
   public struct Key {
     public static let Task: Swift.String
     public static let ResponseData: Swift.String
@@ -376,12 +377,12 @@ public enum NoPassPushNotificationWorkflow : Swift.Int {
   @objc override dynamic open func responds(to selector: ObjectiveC.Selector) -> Swift.Bool
   @objc deinit
 }
-extension SessionDelegate : Foundation.URLSessionDelegate {
+extension asnpbridge.SessionDelegate : Foundation.URLSessionDelegate {
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, didBecomeInvalidWithError error: Swift.Error?)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
   @objc dynamic open func urlSessionDidFinishEvents(forBackgroundURLSession session: Foundation.URLSession)
 }
-extension SessionDelegate : Foundation.URLSessionTaskDelegate {
+extension asnpbridge.SessionDelegate : Foundation.URLSessionTaskDelegate {
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, willPerformHTTPRedirection response: Foundation.HTTPURLResponse, newRequest request: Foundation.URLRequest, completionHandler: @escaping (Foundation.URLRequest?) -> Swift.Void)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, needNewBodyStream completionHandler: @escaping (Foundation.InputStream?) -> Swift.Void)
@@ -390,19 +391,19 @@ extension SessionDelegate : Foundation.URLSessionTaskDelegate {
   @objc(URLSession:task:didFinishCollectingMetrics:) dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didFinishCollecting metrics: Foundation.URLSessionTaskMetrics)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
 }
-extension SessionDelegate : Foundation.URLSessionDataDelegate {
+extension asnpbridge.SessionDelegate : Foundation.URLSessionDataDelegate {
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive response: Foundation.URLResponse, completionHandler: @escaping (Foundation.URLSession.ResponseDisposition) -> Swift.Void)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didBecome downloadTask: Foundation.URLSessionDownloadTask)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, willCacheResponse proposedResponse: Foundation.CachedURLResponse, completionHandler: @escaping (Foundation.CachedURLResponse?) -> Swift.Void)
 }
-extension SessionDelegate : Foundation.URLSessionDownloadDelegate {
+extension asnpbridge.SessionDelegate : Foundation.URLSessionDownloadDelegate {
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didFinishDownloadingTo location: Foundation.URL)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didWriteData bytesWritten: Swift.Int64, totalBytesWritten: Swift.Int64, totalBytesExpectedToWrite: Swift.Int64)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didResumeAtOffset fileOffset: Swift.Int64, expectedTotalBytes: Swift.Int64)
 }
 @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
-extension SessionDelegate : Foundation.URLSessionStreamDelegate {
+extension asnpbridge.SessionDelegate : Foundation.URLSessionStreamDelegate {
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, readClosedFor streamTask: Foundation.URLSessionStreamTask)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, writeClosedFor streamTask: Foundation.URLSessionStreamTask)
   @objc dynamic open func urlSession(_ session: Foundation.URLSession, betterRouteDiscoveredFor streamTask: Foundation.URLSessionStreamTask)
@@ -454,7 +455,7 @@ public protocol NoPassRegistrationServiceDelegate : AnyObject {
   public func startRegistration(result: Swift.String, enabled2FaMethod: asnpbridge.BiometricType, isScreenLock: Swift.Bool)
   @objc deinit
 }
-extension NSNotification.Name {
+extension Foundation.NSNotification.Name {
   public static let didReceiveAssigeDeviceData: Foundation.Notification.Name
   public static let applicationWillEnterForeground: Foundation.Notification.Name
   public static let didReceiveRegistationData: Foundation.Notification.Name
@@ -477,7 +478,7 @@ public enum NopassError : Swift.Error {
   case invalidSynchronisationData
   case invalidQRCode
 }
-extension NopassError {
+extension asnpbridge.NopassError {
   public var errorDescription: Swift.String {
     get
   }
@@ -502,7 +503,6 @@ extension NopassError {
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers open class TaskDelegate : ObjectiveC.NSObject {
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ImageProvider {
@@ -539,14 +539,14 @@ public struct NoPassAccount {
 }
 @_hasMissingDesignatedInitializers public class NoPassRemoveAccountService {
   public static var shared: asnpbridge.NoPassRemoveAccountService
-  public func deleteDevice(account: asnpbridge.NoPassAccount, session: Swift.String, isNeedUpdateBackup: Swift.Bool = true, enabled2FaMethod: asnpbridge.BiometricType, isScreenLock: Swift.Bool, completion: ((Foundation.NSError?) -> Swift.Void)?)
+  public func deleteDevice(account: asnpbridge.NoPassAccount, session: Swift.String, isNeedUpdateBackup: Swift.Bool = true, enabled2FaMethod: asnpbridge.BiometricType, isScreenLock: Swift.Bool, completion: ((_ error: Foundation.NSError?) -> Swift.Void)?)
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(Account) public class Account : CoreData.NSManagedObject {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-extension Account {
+extension asnpbridge.Account {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<asnpbridge.Account>
   @objc @NSManaged dynamic public var alias: Swift.String? {
     @objc get
@@ -597,7 +597,7 @@ extension Account {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
   @objc deinit
 }
-extension AuthHistory {
+extension asnpbridge.AuthHistory {
   @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<asnpbridge.AuthHistory>
   @objc @NSManaged dynamic public var authDate: Foundation.Date? {
     @objc get
